@@ -1,7 +1,7 @@
 <template>
     <div id="display">
-        <h2>{{Dtitle}}</h2>
-        <p>{{Ddesc}}</p>
+        <h2>{{info.Dtitle}}</h2>
+        <p>{{info.Ddesc}}</p>
     </div>
 </template>
 

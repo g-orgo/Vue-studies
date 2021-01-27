@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="container">
     <div class="container">
-      <h1>Escreva uma mensagem aqui!</h1>
+      <h1>Estudos de Vue</h1>
       <hr>
       <Cards/>
       <hr>
-      <Display :info="example"/> <!--  -->
+      <Display :info="example"/>
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     return{
       example: {
         Dtitle: "Propriedades",
-        Ddesc: "Acrescentam atributos aos modulos"
+        Ddesc: "Elas acrescentam atributos aos componentes e podem ser acrescentadas como um objeto também."
       }
     }
   },
@@ -31,6 +31,8 @@ export default {
   }
 }
 </script>
-
 <style>
+  body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 </style>
