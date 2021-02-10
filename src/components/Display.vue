@@ -7,7 +7,6 @@
         <p v-show="showDesc"> \\Aqui existe uma outra mensagem, mas só acessando o HTML para achar ela.//</p>
         <button @click="childFatherComm()" v-show="showBtn">Disparar evento</button>
         <br>
-        <h4>{{otherId}}</h4>
     </div>
 </template>
 
@@ -19,7 +18,7 @@ export default {
         }
     },
     props: {
-        /* Props são atributos ou objetos customizados que podem ser atribuídos ao componente */
+        /* Props são atributos customizados que são atribuídos ao componente */
         info: Object,
         showDesc: Boolean,
         showBtn: Boolean,
@@ -32,14 +31,9 @@ export default {
         }
     },
     filters: {
-        /* Filtros irão alterar a exibição mas não o dado bruto, portanto exigem o parâmetro "value" */
+        /* Filtros irão alterar a exibição mas não o dado, e exigem o parâmetro "value" */
         TitleReprocessor: function(value){
             return value.toUpperCase();
-        }
-    },
-    computed: {
-        otherId: function(){
-            return (`${this.info.Dtitle} ${this.info.Ddesc}`).toUpperCase()
         }
     }
 }

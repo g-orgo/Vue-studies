@@ -1,16 +1,24 @@
 <template>
-    <div id="card">
-        <div class="alert">
-            <h2 :value="titulo">O título: {{ titulo }}</h2>
-            <p :value="corpo">O corpo do texto: {{ corpo }}</p>
-        </div>
-        <div class="card">
-            <input class="card-title textarea-title" v-model="titulo" placeholder="Nome"> <!-- Two way binding, tanto exibe quanto altera dados -->
-            <textarea class= "card-body textarea-desc" cols="30" rows="10" v-model="corpo" placeholder="Texto" @blur="userWrote()"></textarea>
-        </div>
-        <div class="button">
-            <button :class="{'btn': isReadable, 'btn-disabled': !isReadable}" type="submit">Enviar!</button> <!-- Também há como decidir a classe à partir de uma variável -->
-        </div>
+    <div>
+        <b-row>
+            <b-col cols="12">
+                <div class="alert">
+                    <h2 :value="titulo">O título: {{ titulo }}</h2>
+                    <p :value="corpo">O corpo do texto: {{ corpo }}</p>
+                </div>
+            </b-col>            
+        </b-row>
+        <b-row>
+            <b-col md="2" sm="3">
+                <div>
+                    <input class="card-title" v-model="titulo" placeholder="Nome"> <!-- Two way binding, tanto exibe quanto altera dados -->
+                    <textarea class= "card-text textarea-desc" cols="30" rows="10" v-model="corpo" placeholder="Texto" @change="userWrote()"></textarea>
+                </div>
+                <b-col offset-md="6" class="button">
+                    <b-button :class="{'btn': isReadable, 'btn-disabled': !isReadable}" type="submit">Enviar!</b-button> <!-- Também há como decidir a classe à partir de uma variável -->
+                </b-col>
+            </b-col>
+        </b-row>
     </div>
 </template>
 
@@ -33,8 +41,6 @@
 
                 if(textarea.value.length > 0){
                     this.isReadable = !this.isReadable;
-                }else{
-                    this.isReadable = false
                 }
             }
         },
@@ -44,29 +50,8 @@
 </script>
 
 <style scoped>
-    #card{
-        margin: 10px;
-        width: 300px;
-        height: 330px;
-    }
-
-    .card-title{
-        margin-top: 30px;
-        margin-left: 5%;
-    }
-
-    .card-body{
-        margin-top: 10px;
-        margin-left: 5%;
-    }
-
-    h2, p {
-        margin-left: 5%
-    }
-
     button{
         margin-top: 10px;
-        margin-left: 190px;
     }
     .btn-disabled{
         background: aliceblue;
