@@ -5,9 +5,9 @@
       <hr>
       <Cards/>
       <hr>
-      <Display :info="example" :showDesc="false" @childFatherAttr="childFatterCommEnd()" :showBtn="true"/>
+      <Display :info="example" :showDesc="false" @childFatherAttr="childFatterCommEnd($event)" :showBtn="true"/>
       <hr>
-      <div v-for="fruta in frutas" :key="fruta.id">
+      <div v-for="fruta in fruits" :key="fruta.id">
         <Display :info="fruta" :showDesc="false" :showBtn="false"/>
       </div>
     </div>
@@ -26,9 +26,8 @@
         example: {
           Dtitle: "Propriedades",
           Ddesc: "Elas acrescentam atributos aos componentes e podem ser acrescentadas como um objeto também."
-          
         },
-        frutas: [
+        fruits: [
           {
             id: 1,
             Dtitle: "Maçã",
@@ -47,8 +46,9 @@
       Display
     },
     methods:{
-      childFatterCommEnd: function(){
+      childFatterCommEnd: function($event){
         console.log('Comunicação de filhos para pais :)')
+        console.log($event)
       }
     }
   }

@@ -1,15 +1,15 @@
 <template>
     <div id="card">
         <div class="alert">
-            <h2 :value="titulo">O título: {{ titulo }}</h2>  <!-- One way binding, só exibe dado do servidor -->
+            <h2 :value="titulo">O título: {{ titulo }}</h2>
             <p :value="corpo">O corpo do texto: {{ corpo }}</p>
         </div>
         <div class="card">
-            <input class="card-title textarea-title" v-model="titulo" placeholder="Nome"> <!-- Two way binding, troca dados com o servidor -->
+            <input class="card-title textarea-title" v-model="titulo" placeholder="Nome"> <!-- Two way binding, tanto exibe quanto altera dados -->
             <textarea class= "card-body textarea-desc" cols="30" rows="10" v-model="corpo" placeholder="Texto" @blur="userWrote()"></textarea>
         </div>
         <div class="button">
-            <button :class="{'btn': isReadable, 'btn-disabled': !isReadable}" type="submit">Enviar!</button> <!-- Aqui ele está decidindo a classe a partir de uma variável -->
+            <button :class="{'btn': isReadable, 'btn-disabled': !isReadable}" type="submit">Enviar!</button> <!-- Também há como decidir a classe à partir de uma variável -->
         </div>
     </div>
 </template>
