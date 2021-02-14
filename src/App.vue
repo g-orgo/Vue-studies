@@ -3,25 +3,25 @@
     <b-container fluid>
       <h1>Estudos de Vue</h1>
       <hr>
-      <Cards/>
+      <Forms/>
       <hr>
       <b-row>
-      <Display :info="example" :showDesc="false" @childFatherAttr="childFatterCommEnd($event)" :showBtn="true"/>
+        <Display :info="example" :showDesc="false" @childFatherAttr="childFatterCommEnd($event)" :showBtn="true"/>
       </b-row>
       <hr>
       <b-row>
-      <div v-for="fruta in fruitsTitleOrderizer" :key="fruta.id">
-        <Display :info="fruta" :showDesc="false" :showBtn="false"/>
-      </div>
+        <div v-for="fruta in fruitsOrderizer" :key="fruta.id">
+          <Display :info="fruta" :showDesc="false" :showBtn="false"/>
+        </div>
       </b-row>
     </b-container>
   </div>
 </template>
 
 <script>
-  import Cards from './components/Cards';
+  import Forms from './components/Forms';
   import Display from './components/Display';
-  import _ from 'lodash';
+  import _ from 'lodash'; // Biblioteca de organização
 
 
   export default {
@@ -47,12 +47,17 @@
             id: 3,
             Dtitle: "Pera",
             Ddesc: "Fruta verde",
-          }
+          },
+          {
+            id: 4,
+            Dtitle: "Mamão",
+            Ddesc: "Fruta laranja",
+          },
         ]
       }
     },
     components: {
-      Cards,
+      Forms,
       Display
     },
     methods:{
@@ -63,7 +68,7 @@
     },
     computed: {
         /* Computed properties são dados que retornarão com alterações entre renderizações. (É como o data() só que com watchers)*/
-        fruitsTitleOrderizer: function(){
+        fruitsOrderizer: function(){
             return _.orderBy(this.fruits, ['Dtitle'], ['asc']) // Estou usando uma função da biblioteca "lodash" para ordenar o que está escrito
         }
     }

@@ -1,12 +1,14 @@
 <template>
     <div id="display">
-        <h2>{{info.Dtitle | TitleReprocessor}}</h2>
-        <p>{{info.Ddesc}}</p> <!-- One way binding, apenas exibe; não altera dados -->
-        <p v-if="showDesc" >É assim que se usa um if :)</p>
-        <p v-else> \\Aqui existe uma mensagem escondida apenas para os desenvolvedores.//</p>
-        <p v-show="showDesc"> \\Aqui existe uma outra mensagem, mas só acessando o HTML para achar ela.//</p>
-        <button @click="childFatherComm()" v-show="showBtn">Disparar evento</button>
-        <br>
+        <b-col>
+            <h2>{{info.Dtitle | TitleReprocessor}}</h2>
+            <p>{{info.Ddesc}}</p> <!-- One way binding, apenas exibe; não altera dados -->
+            <p v-if="showDesc" >É assim que se usa um if :)</p>
+            <p v-else> \\Aqui existe uma mensagem escondida apenas para os desenvolvedores.//</p>
+            <p v-show="showDesc"> \\Aqui existe uma outra mensagem, mas só acessando o HTML para achar ela.//</p>
+            <b-btn @click="childFatherComm()" v-show="showBtn" variant="success">Disparar evento</b-btn>
+            <br>
+        </b-col>
     </div>
 </template>
 
@@ -40,7 +42,4 @@ export default {
 </script>
 
 <style>
-    #display{
-        margin-left: 1.3%;
-    }
 </style>
