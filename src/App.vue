@@ -67,10 +67,13 @@
       }
     },
     computed: {
-        /* Computed properties são dados que retornarão com alterações entre renderizações. (É como o data() só que com watchers)*/
-        fruitsOrderizer: function(){
-            return _.orderBy(this.fruits, ['Dtitle'], ['asc']) // Estou usando uma função da biblioteca "lodash" para ordenar o que está escrito
-        }
+      /* Computed properties são dados que retornarão com alterações entre renderizações. (É como o data() só que com watchers)*/
+      fruitsOrderizer: function(){
+          return _.orderBy(this.fruits, ['Dtitle'], ['asc']) // Estou usando uma função da biblioteca "lodash" para ordenar o que está escrito
+      }
+    },
+    created: function(){ // "created" é uma função que é ativada sempre que o componente é rodado no browser
+      console.log('Component loaded')
     }
   }
 </script>
