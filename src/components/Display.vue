@@ -20,7 +20,8 @@ export default {
         }
     },
     props: {
-        /* Props são atributos customizados que são atribuídos ao componente */
+        /* Props são atributos customizados que são atribuídos ao componente
+        Isto é, são dados que o componente espera receber de um componente-pai */
         info: Object,
         showDesc: Boolean,
         showBtn: Boolean,
